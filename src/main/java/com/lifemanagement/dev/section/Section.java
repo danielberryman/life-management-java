@@ -2,6 +2,7 @@ package com.lifemanagement.dev.section;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,7 +19,7 @@ public class Section {
 
     private String title;
 
-    @OneToMany(mappedBy="section")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "section", orphanRemoval = true)
     private List<Tab> tabs;
     
 
